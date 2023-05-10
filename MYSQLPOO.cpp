@@ -1,6 +1,7 @@
 #include <mysql.h>
 #include <iostream>
 #include "Cliente.h"
+#include "Proveedores.h"
 using namespace std;
 int main()
 {  
@@ -23,4 +24,42 @@ int main()
     c.crear();
     c.leer();
     return 0;
+
+    //tabla proveedores
+    int idProveedore;
+    string proveedor,telefonos;
+    cout << "Ingrese el idProveedore: " << endl;
+    cin >> idProveedore;
+    cin.ignore();
+    cout << "Ingrese el proveedor: " << endl;
+    getline(cin, proveedor);
+    cout << "Ingrese el nit: " << endl;
+    getline(cin, nit);
+    cout << "Ingrese la direccion: " << endl;
+    getline(cin, direccion);
+    cout << "Ingrese el telefono: " << endl;
+    getline(cin, telefonos);
+    Proveedores C = Proveedores(idProveedore, proveedor, nit, direccion, telefonos);
+    C.Crear();
+    C.Leer();
+    //actualizar 
+    cout << "Ingrese idProveedore: " << endl;
+    cin >> idProveedore;
+    cin.ignore();
+    cout << "Ingrese el nuevo proveedor: " << endl;
+    getline(cin, proveedor);
+    cout << "Ingrese el nuevo nit: " << endl;
+    getline(cin, nit);
+    cout << "Ingrese la nueva direccion: " << endl;
+    getline(cin, direccion);
+    cout << "Ingrese el nuevo telefono: " << endl;
+    getline(cin, telefonos);
+    Proveedores U = Proveedores(idProveedore, proveedor, nit, direccion, telefonos);
+    U.Actualizar();
+    //Eliminar
+    cout << "Ingrese el idProveedore a eliminar: " << endl;
+    cin >> idProveedore;
+    cin.ignore();
+    Proveedores D = Proveedores(idProveedore);
+    D.Eliminar();
 }
